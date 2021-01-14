@@ -48,10 +48,30 @@ public class BookService {
 
     public List<Book> searchBooksByAuthor(String nameAuthor) {
 
-      return  bookRepository.findBookByAuthorsName(nameAuthor);
+      return  sortBooksByParams(bookRepository.findBookByAuthorsName(nameAuthor));
     }
 
     public List<Book> searchBookByGenre(String nameGenre) {
-        return bookRepository.findBookByGenre(nameGenre);
+
+        return  sortBooksByParams(bookRepository.findBookByGenre(nameGenre));
+    }
+
+    private List<Book> sortBooksByParams(List<Book> bookList){
+        List<Reservation> reservations = reservationBookRepository.findAll();
+
+        if(reservations.size()==0){
+            return  bookList;
+        }
+
+        List<Book> listSearch = new LinkedList<>();
+        for (Book book:bookList){
+            for(Reservation reservation: reservations){
+                if(book.getName().equals(reservation.getBook().getName())){
+
+                }
+            }
+        }
+        return listSearch;
+
     }
 }
