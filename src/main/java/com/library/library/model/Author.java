@@ -3,12 +3,22 @@ package com.library.library.model;
 
 public class Author {
     private Long id;
-
-    public Author(Long id) {
-        this.id = id;
-    }
+    private String name;
 
     public Author(){}
+
+    public Author(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

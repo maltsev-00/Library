@@ -20,10 +20,11 @@ public class Book {
     private String year;
     private List<String> translators;
     private String description;
+    private List<String> genre;
 
     public Book() {}
 
-    public Book(Long id, String name, List<Author> authors, String publisher, String year, List<String> translators, String description) {
+    public Book(Long id, String name, List<Author> authors, String publisher, String year, List<String> translators, String description, List<String> genre) {
         this.id = id;
         this.name = name;
         this.authors = authors;
@@ -31,6 +32,7 @@ public class Book {
         this.year = year;
         this.translators = translators;
         this.description = description;
+        this.genre = genre;
     }
 
     public Long getId() {
@@ -87,5 +89,13 @@ public class Book {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<String> getGenre() {
+        return genre;
+    }
+
+    public void setGenre(List<String> genre) {
+        this.genre = genre;
     }
 }
