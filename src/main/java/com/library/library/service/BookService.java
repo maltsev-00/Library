@@ -22,34 +22,20 @@ public class BookService {
     }
 
     public List<Book> freeBooks(){
-        List<Reservation> reservations = reservationBookRepository.findAll();
-        if(reservations.size()==0){
-            return bookRepository.findAll();
-        }
 
-        List<Book> allBooks = bookRepository.findAll();
-        List<Book> booksFree = new LinkedList<>();
-
-
-        for(Book book:allBooks){
-            for(Reservation reservation: reservations){
-
-                if(!book.getName().equals(reservation.getBook().getName())){
-                    booksFree.add(book);
-                }
-            }
-        }
-        return booksFree;
+        return  sortBooksByParams(bookRepository.findAll());
     }
 
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
 
+
     public List<Book> searchBooksByAuthor(String nameAuthor) {
 
       return  sortBooksByParams(bookRepository.findBookByAuthorsName(nameAuthor));
     }
+
 
     public List<Book> searchBookByGenre(String nameGenre) {
 
@@ -64,13 +50,13 @@ public class BookService {
         }
 
         List<Book> listSearch = new LinkedList<>();
-        for (Book book:bookList){
-            for(Reservation reservation: reservations){
-                if(book.getName().equals(reservation.getBook().getName())){
+        bookList.forEach(x ->
+                reservations.stream()
+                        .filter(y-> !x.getName().equals(y.getBook().getName()))
+                        .forEach(y ->listSearch.add(x))
+        );
 
-                }
-            }
-        }
+
         return listSearch;
 
     }

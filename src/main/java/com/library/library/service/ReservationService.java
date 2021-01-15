@@ -24,10 +24,9 @@ public class ReservationService {
 
     public void addNewReservation(String nameBook,String name){
         Reservation reservation = reservationBookRepository.findReservationByBookName(nameBook);
-        if(reservation!=null) {
+        if(reservation==null) {
             List<Reservation> reservations = reservationBookRepository.findReservationByUserName(name);
 
-            System.out.println(reservations.size());
             if (reservations.size() < 5) {
 
                 Book book = bookRepository.findByName(nameBook);
