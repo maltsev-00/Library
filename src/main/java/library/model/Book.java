@@ -1,4 +1,4 @@
-package store.model;
+package library.model;
 
 
 import org.springframework.data.annotation.Id;

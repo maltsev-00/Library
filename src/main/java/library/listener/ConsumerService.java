@@ -1,10 +1,10 @@
-package store.listener;//package com.library.library.listener;
+package library.listener;//package com.library.library.listener;
 
 
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import store.model.Book;
+import library.model.Book;
 
 @Service
 public class ConsumerService {

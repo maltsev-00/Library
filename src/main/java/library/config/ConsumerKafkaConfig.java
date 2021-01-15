@@ -1,4 +1,4 @@
-package store.config;//package com.library.library.config;
+package library.config;//package com.library.library.config;
 
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.deser.std.StringDeserializer;
@@ -11,7 +11,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
-import store.model.Book;
+import library.model.Book;
 
 import java.util.HashMap;
 import java.util.Map;

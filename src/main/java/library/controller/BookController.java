@@ -1,4 +1,4 @@
-package store.controller;
+package library.controller;
 
 
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import store.model.Book;
-import store.service.BookService;
+import library.model.Book;
+import library.service.BookService;
 
 import java.util.List;
 

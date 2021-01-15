@@ -1,13 +1,13 @@
-package store.service;
+package library.service;
 
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import store.model.Author;
-import store.model.Book;
-import store.repository.BookRepository;
-import store.repository.ReservationBookRepository;
+import library.model.Author;
+import library.model.Book;
+import library.repository.BookRepository;
+import library.repository.ReservationBookRepository;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;

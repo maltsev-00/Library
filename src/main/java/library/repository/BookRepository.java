@@ -1,9 +1,9 @@
-package store.repository;
+package library.repository;
 
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import store.model.Book;
+import library.model.Book;
 
 import java.util.List;
 

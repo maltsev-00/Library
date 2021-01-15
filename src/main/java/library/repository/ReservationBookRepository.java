@@ -1,8 +1,8 @@
-package store.repository;
+package library.repository;
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import store.model.Reservation;
+import library.model.Reservation;
 
 import java.util.List;
 

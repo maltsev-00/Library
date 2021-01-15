@@ -1,4 +1,4 @@
-package store.model;
+package library.model;
 
 
 public class Author {

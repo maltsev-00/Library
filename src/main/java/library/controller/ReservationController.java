@@ -1,10 +1,10 @@
-package store.controller;
+package library.controller;
 
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import store.service.ReservationService;
+import library.service.ReservationService;
 
 
 @RestController

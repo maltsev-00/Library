@@ -1,14 +1,14 @@
-package store.service;
+package library.service;
 
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import store.model.Book;
-import store.model.Reservation;
-import store.model.User;
-import store.repository.BookRepository;
-import store.repository.ReservationBookRepository;
+import library.model.Book;
+import library.model.Reservation;
+import library.model.User;
+import library.repository.BookRepository;
+import library.repository.ReservationBookRepository;
 
 import java.util.List;
 
