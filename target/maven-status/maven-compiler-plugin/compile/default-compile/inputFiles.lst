@@ -1,0 +1,8 @@
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/MaltsevApplication.java
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/config/KafkaProducerConfiguration.java
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/model/User.java
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/service/KafkaService.java
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/service/Start.java
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/repository/UserRepo.java
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/resource/UserResource.java
+/media/maltsev/EE045014044FDE69/git/maltsev/src/main/java/com/example/maltsev/config/KafkaConsumerConfiguration.java
