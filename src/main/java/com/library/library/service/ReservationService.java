@@ -27,6 +27,7 @@ public class ReservationService {
         if(reservation==null) {
             List<Reservation> reservations = reservationBookRepository.findReservationByUserName(name);
 
+
             if (reservations.size() < 5) {
 
                 Book book = bookRepository.findByName(nameBook);
@@ -35,6 +36,9 @@ public class ReservationService {
 
             }
         }
+
+
+
     }
     public void deleteReservation(String nameBook){
         reservationBookRepository.deleteByBookName(nameBook);
