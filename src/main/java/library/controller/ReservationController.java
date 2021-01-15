@@ -2,9 +2,15 @@ package library.controller;
 
 
 
+import library.constants.Constants;
+import library.model.Book;
+import library.model.Reservation;
+import library.repository.ReservationBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import library.service.ReservationService;
+
+import java.time.LocalDateTime;
 
 
 @RestController
@@ -19,14 +25,26 @@ public class ReservationController {
     }
 
     @PostMapping("addReservation/{nameUser}/{nameBook}")
-    public void addReservation(@PathVariable String nameUser,@PathVariable String nameBook) {
-
-        reservationService.addNewReservation(nameBook,nameUser);
+    public String addReservation(@PathVariable String nameUser,@PathVariable String nameBook) {
+        return  reservationService.addNewReservation(nameBook,nameUser);
     }
 
     @DeleteMapping("deleteReservation/{nameBook}")
-    public void deleteReservation(@PathVariable String nameBook) {
-        reservationService.deleteReservation(nameBook);
+    public String deleteReservation(@PathVariable String nameBook) {
+      return reservationService.deleteReservation(nameBook);
     }
+
+    @PutMapping("renewal/{nameBook}")
+    public Reservation changeRenewal(@RequestBody Reservation reservation,@PathVariable("nameBook") String nameBook){
+
+
+//        Reservation reservationImpl= reservationBookRepository.findReservationByBookName(nameBook);
+//        reservationImpl.setDateReserved(constants.getDtf().format(LocalDateTime.now().plusDays(5L)));
+//        reservation=reservationImpl;
+//        reservationBookRepository.save(reservation);
+
+        return new Reservation();
+    }
+
 
 }

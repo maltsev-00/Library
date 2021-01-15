@@ -8,11 +8,9 @@ import java.util.List;
 
 
 @Document(collection = "books")
+
 public class Book {
 
-
-	@Id
-	private Long id;
 	private String name;
     private List<Author> authors;
     private String publisher;
@@ -23,8 +21,8 @@ public class Book {
 
     public Book() {}
 
-    public Book(Long id, String name, List<Author> authors, String publisher, String year, List<String> translators, String description, List<String> genre) {
-        this.id = id;
+    public Book( String name, List<Author> authors, String publisher, String year, List<String> translators, String description, List<String> genre) {
+
         this.name = name;
         this.authors = authors;
         this.publisher = publisher;
@@ -34,13 +32,7 @@ public class Book {
         this.genre = genre;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -96,5 +88,18 @@ public class Book {
 
     public void setGenre(List<String> genre) {
         this.genre = genre;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "name='" + name + '\'' +
+                ", authors=" + authors +
+                ", publisher='" + publisher + '\'' +
+                ", year='" + year + '\'' +
+                ", translators=" + translators +
+                ", description='" + description + '\'' +
+                ", genre=" + genre +
+                '}';
     }
 }

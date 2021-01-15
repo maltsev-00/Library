@@ -45,6 +45,11 @@ public class BookController {
         return bookService.searchBookByGenre(nameGenre);
     }
 
+    @GetMapping("searchBookName/{genreBook}")
+    public List<String> searchByBookByName(@PathVariable String genreBook){
+        return bookService.searchByBookGenre(genreBook);
+    }
+
 
 
 }

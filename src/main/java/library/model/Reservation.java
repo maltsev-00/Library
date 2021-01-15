@@ -8,27 +8,20 @@ import java.util.Date;
 
 @Document(collection = "reservation")
 public class Reservation  {
-    @Id
-    private Long id;
+
     private User user;
     private Book book;
-    private Date dateReserved;
+    private String dateReserved;
 
     public Reservation() {}
 
-    public Reservation(Long id, User user, Book book) {
-        this.id = id;
+    public Reservation(User user, Book book, String dateReserved) {
         this.user = user;
         this.book = book;
+        this.dateReserved = dateReserved;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public User getUser() {
         return user;
@@ -46,11 +39,11 @@ public class Reservation  {
         this.book = book;
     }
 
-    public Date getDateReserved() {
+    public String getDateReserved() {
         return dateReserved;
     }
 
-    public void setDateReserved(Date dateReserved) {
+    public void setDateReserved(String dateReserved) {
         this.dateReserved = dateReserved;
     }
 }
