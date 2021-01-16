@@ -1,15 +1,14 @@
 package library.service;
 
 
+import library.model.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import library.model.Book;
-import library.model.Reservation;
 import library.repository.BookRepository;
 import library.repository.ReservationBookRepository;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class BookService {
@@ -29,7 +28,7 @@ public class BookService {
     }
 
     public List<Book> freeBooks(){
-        return  sortBooksByParams(bookRepository.findAll());
+        return  sortBooksWithOutReservation();
     }
 
     public List<Book> findAll() {
@@ -46,47 +45,31 @@ public class BookService {
         return  bookRepository.findBookByGenre(nameGenre);
     }
 
-    private List<Book> sortBooksByParams(List<Book> bookList){
-        
-        List<Book> books = new LinkedList<>(bookList);
-        AtomicInteger count= new AtomicInteger();
+    private List<Book> sortBooksWithOutReservation(){
 
-        for (Book x : bookList) {
-            reservationBookRepository.findAll().forEach(y -> {
-                        if (y.getBook().getName().equals(x.getName())) {
-                            books.remove(count.get());
-                            count.set(count.get() - 1);
-                        }
-                    }
-            );
-            count.getAndIncrement();
-        }
+        List<Book> books = new LinkedList<>();
+
+        bookRepository.findAll().stream().filter(x->reservationBookRepository.findReservationByBookName(x.getName())==null)
+                         .forEach(books::add);
+
         return books;
 
     }
 
-    public List<String> searchByBookGenre(String genreBook) {
 
 
-        HashSet<String> set = new HashSet<>();
-        List<Book> books =bookRepository.findBookByGenre(genreBook);
-        AtomicInteger count= new AtomicInteger();
+    public List<String> searchBookTranslator(String translator) {
+        List<String> infoList = new LinkedList<>();
 
-        for (Book x : bookRepository.findBookByGenre(genreBook)) {
-            reservationBookRepository.findAll().forEach(y -> {
-                        if (y.getBook().getName().equals(x.getName())) {
-                            set.add(y.getDateReserved()+"!!!"+y.getBook().getName());
-
-                            books.remove(count.get());
-                            count.set(count.get() - 1);
-                        }else {
-                            set.add(y.getBook().getName()+" "+y.getDateReserved());
-                        }
-                    }
-            );
-            count.getAndIncrement();
-        }
-
-        return new LinkedList<String>(set);
+        bookRepository.findBooksByTranslators(translator).forEach(x->{
+            Reservation reservation =reservationBookRepository.findReservationByBookName(x.getName());
+            if(reservation==null){
+                infoList.add(x.getName()+" книга доступна");
+            }
+            else{
+                infoList.add(x.getName()+" книга будет доступна "+reservation.getDateReserved());
+            }
+        });
+        return infoList;
     }
 }

@@ -1,25 +1,16 @@
 package library.constants;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.format.DateTimeFormatter;
 
 @Component
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Constants {
-
     private  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-
-    public Constants() {}
-
-    public Constants(DateTimeFormatter dtf) {
-        this.dtf = dtf;
-    }
-
-    public DateTimeFormatter getDtf() {
-        return dtf;
-    }
-
-    public void setDtf(DateTimeFormatter dtf) {
-        this.dtf = dtf;
-    }
 }

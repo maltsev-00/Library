@@ -29,7 +29,7 @@ public class Start {
     @PostConstruct
     public void start() {
       //  System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-     //  bookRepository.save(new Book("Маленький принц 4 часть",Collections.singletonList(new Author(7L,"Maltsev")),"QWE","2012",Collections.singletonList("Ru"),"О книге ",Collections.singletonList("Драма")));
+      // bookRepository.save(new Book("Маленький принц 4 часть",Collections.singletonList(new Author("Maltsev")),"QWE","2012",Collections.singletonList("Ru"),"О книге ",Collections.singletonList("Драма")));
 
     }
 

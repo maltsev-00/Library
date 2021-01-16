@@ -36,7 +36,6 @@ public class BookController {
 
     @GetMapping("searchBooksByAuthor/{nameAuthor}")
     public List<Book> showBooksAuthor(@PathVariable String nameAuthor){
-
         return bookService.searchBooksByAuthor(nameAuthor);
     }
 
@@ -45,9 +44,9 @@ public class BookController {
         return bookService.searchBookByGenre(nameGenre);
     }
 
-    @GetMapping("searchBookName/{genreBook}")
-    public List<String> searchByBookByName(@PathVariable String genreBook){
-        return bookService.searchByBookGenre(genreBook);
+    @GetMapping("searchBookByTranslate/{translator}")
+    public List<String> searchByBookByName(@PathVariable String translator){
+        return bookService.searchBookTranslator(translator);
     }
 
 

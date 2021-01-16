@@ -1,20 +1,16 @@
 package library.service;
 
 
-
 import library.constants.Constants;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import library.model.Book;
 import library.model.Reservation;
 import library.model.User;
 import library.repository.BookRepository;
 import library.repository.ReservationBookRepository;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-
-import java.util.List;
 
 @Service
 public class ReservationService {
@@ -31,12 +27,10 @@ public class ReservationService {
     }
 
     public String addNewReservation(String nameBook,String name){
-        Reservation reservation = reservationBookRepository.findReservationByBookName(nameBook);
-        if(reservation==null) {
-            List<Reservation> reservations = reservationBookRepository.findReservationByUserName(name);
 
+        if(reservationBookRepository.findReservationByBookName(nameBook)==null) {
 
-            if (reservations.size() < 5) {
+            if (reservationBookRepository.findReservationByUserName(name).size() < 5) {
 
                 Book book = bookRepository.findByName(nameBook);
                 if (book != null) {
