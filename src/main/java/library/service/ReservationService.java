@@ -10,7 +10,9 @@ import library.repository.ReservationBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 
 @Service
 public class ReservationService {
@@ -48,8 +50,21 @@ public class ReservationService {
     }
 
 
-    public String changeDate(String nameBook) {
+    public String updateReservations() {
+        LocalDateTime localDateTime =LocalDateTime.now();
 
-         return "Продление резерва успешно !";
+        reservationBookRepository.findAll().stream()
+                .filter(x->LocalDate.parse(x.getDateReserved(), constants.getDtf()).getDayOfMonth()<localDateTime.getDayOfMonth())
+                .forEach(x->reservationBookRepository.deleteByBookName(x.getBook().getName()));
+
+        return "База обновлена !";
+    }
+
+    public Reservation updateDate(Reservation reservation) {
+        reservationBookRepository.deleteByBookName(reservation.getBook().getName());
+
+        reservation.setDateReserved(String.valueOf(LocalDate.parse(reservation.getDateReserved(), constants.getDtf()).plusDays(5L)));
+        reservationBookRepository.save(reservation);
+        return reservation;
     }
 }

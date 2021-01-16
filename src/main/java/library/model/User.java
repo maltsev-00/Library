@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private String name;//Расчет на то что тут будет больше параметров,один параметр для проверки работы сервера
+    private String name;//Расчет на то что тут будет больше параметров.Один параметр для проверки работы сервера
 
 }

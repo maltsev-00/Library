@@ -12,5 +12,5 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Constants {
-    private  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    private  DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 }

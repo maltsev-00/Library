@@ -13,8 +13,8 @@ import java.util.*;
 @Service
 public class BookService {
 
-    private BookRepository bookRepository;
-    private ReservationBookRepository reservationBookRepository;
+    private final BookRepository bookRepository;
+    private final ReservationBookRepository reservationBookRepository;
 
     @Autowired
     public BookService(BookRepository bookRepository, ReservationBookRepository reservationBookRepository) {
@@ -53,7 +53,6 @@ public class BookService {
                          .forEach(books::add);
 
         return books;
-
     }
 
 
