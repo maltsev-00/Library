@@ -63,10 +63,10 @@ public class BookService {
         bookRepository.findBooksByTranslators(translator).forEach(x->{
             Reservation reservation =reservationBookRepository.findReservationByBookName(x.getName());
             if(reservation==null){
-                infoList.add(x.getName()+" книга доступна");
+                infoList.add(x.getName()+" - доступна");
             }
             else{
-                infoList.add(x.getName()+" книга будет доступна "+reservation.getDateReserved());
+                infoList.add(x.getName()+" - будет доступна "+reservation.getDateReserved());
             }
         });
         return infoList;

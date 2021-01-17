@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
@@ -17,6 +17,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Reservation  {
 
 
+    @Id
+    private String id;
     private User user;
     private Book book;
     private String dateReserved;

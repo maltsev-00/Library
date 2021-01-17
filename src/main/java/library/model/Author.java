@@ -8,6 +8,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Author {
-    private String name;
-
+    private String name;//Расчет на то что тут будет больше параметров.Один параметр для проверки работы сервера
 }

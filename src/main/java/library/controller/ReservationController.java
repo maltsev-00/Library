@@ -16,18 +16,15 @@ public class ReservationController {
     private final ReservationService reservationService;
 
 
-
     @Autowired
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
-
     }
 
-    @PostMapping("addReservation/{nameUser}/{nameBook}")
-    public String addReservation(@PathVariable String nameUser,@PathVariable String nameBook) {
-        return  reservationService.addNewReservation(nameBook,nameUser);
+    @PostMapping("addReservation/{nameBook}")
+    public String addReservation(@PathVariable String nameBook) {
+        return  reservationService.addNewReservation(nameBook);
     }
-
 
 
     @DeleteMapping("deleteReservation/{nameBook}")
@@ -35,13 +32,12 @@ public class ReservationController {
       return reservationService.deleteReservation(nameBook);
     }
 
-    @PostMapping("/renewal/{nameBook}")
-    public Reservation updateDept(@RequestBody Reservation reservation) {
-
+    @PutMapping("renewal")
+    public Reservation updateDateReservation(@RequestBody Reservation reservation) {
         return reservationService.updateDate(reservation);
     }
 
-    @GetMapping("update")
+    @GetMapping("updateAll")
     public String updateReservation(){
         return  reservationService.updateReservations();
     }

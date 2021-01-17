@@ -11,11 +11,11 @@ import java.util.List;
 
 
 @Document(collection = "books")
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
+
 
 	private String name;
     private List<Author> authors;

@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import static org.mockito.Mockito.when;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,15 +32,14 @@ public class ReservationServiceTest extends TestCase {
 
     @Test
     public void checkBookAdd(){
-        Book book =new Book("Маленький принц 7 часть", Collections.singletonList(new Author("Maltsev")),"QWE","2012",Collections.singletonList("Ru"),"О книге ",Collections.singletonList("Драма"));
-        Book saveBook= bookRepository.save(book);
+        Book book =new Book("Маленький принц  часть", Collections.singletonList(new Author("Maltsev")),"QWE","2012",Collections.singletonList("Ru"),"О книге ",Collections.singletonList("Драма"));
+        bookRepository.save(book);
+        Assert.assertNotNull(bookRepository.findByName(book.getName()));
 
-        assertThat(saveBook).usingRecursiveComparison()
-                .ignoringFields("name").isEqualTo(book);
 
         Assert.assertNotNull(book);
         Assert.assertNotNull(book.getName());
-        Assert.assertTrue(CoreMatchers.is(book.getName()).matches(("Маленький принц 7 часть")));
+        Assert.assertTrue(CoreMatchers.is(book.getName()).matches(("Маленький принц часть")));
 
     }
 
@@ -61,7 +60,9 @@ public class ReservationServiceTest extends TestCase {
 
     @Test
     public void deleteReservation(){
-        assertThat(reservationService.deleteReservation("Маленький принц 7 часть")).contains("Резерв был удален");
+        assertThat(reservationService.deleteReservation("Маленький принц часть")).contains("Резерв был удален");
     }
+
+
 
 }

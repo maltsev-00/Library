@@ -1,13 +1,11 @@
 package library.listener;
 
 
-
-import library.repository.BookRepository;
+import library.model.Book;
 import library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-import library.model.Book;
 
 @Service
 public class ConsumerService {
